@@ -7,8 +7,6 @@ branches:
   only:
     - master
     - docker_build
-cache:
-  cargo: true
 before_script:
   - docker pull jacderida/crust-ci:0.1.0
 script:
