@@ -13,6 +13,7 @@ sudo: false
 branches:
   only:
     - master
+    - docker_build
 cache:
   cargo: true
 before_script:
