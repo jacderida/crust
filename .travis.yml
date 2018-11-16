@@ -16,10 +16,17 @@ branches:
 cache:
   cargo: true
 before_script:
-  - curl -sSL https://github.com/maidsafe/QA/raw/master/travis/cargo_install.sh > cargo_install.sh
-  - bash cargo_install.sh cargo-prune;
+  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then curl -sSL https://github.com/maidsafe/QA/raw/master/travis/cargo_install.sh > cargo_install.sh; fi
+  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then bash cargo_install.sh cargo-prune; fi
+  - if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then docker pull jacderida/crust-ci:0.1.0; fi
 script:
-  - set -x;
-    cargo test --release --verbose
+  - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then
+      set -x;
+      cargo test --release --verbose
+    fi
+  - if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+      set -x;
+      docker run -v "$PWD":/usr/src/crust jacderida/crust-ci:0.1.0
+    fi
 before_cache:
   - cargo prune
