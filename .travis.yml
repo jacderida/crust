@@ -20,6 +20,7 @@ cache:
 before_script:
   - docker pull jacderida/crust-ci:0.1.0
 script:
+  - ls -al
   - docker run -v "$PWD":/usr/src/crust jacderida/crust-ci:0.1.0
 before_cache:
   - cargo prune
