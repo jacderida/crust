@@ -1,7 +1,6 @@
 FROM rust:1.29.2
 
-RUN apt-get update -y && \
-    mkdir /target
+RUN apt-get update -y && mkdir /target
 
 WORKDIR /usr/src/crust
 COPY . .
