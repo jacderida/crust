@@ -23,11 +23,11 @@ before_script:
 script:
   - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then
       set -x;
-      cargo test --release --verbose
+      cargo test --release --verbose;
     fi
   - if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
       set -x;
-      docker run -v "$PWD":/usr/src/crust jacderida/crust-ci:0.1.0
+      docker run -v "$PWD":/usr/src/crust jacderida/crust-ci:0.1.0;
     fi
 before_cache:
   - cargo prune
