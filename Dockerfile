@@ -8,4 +8,4 @@ RUN apt-get update -y && \
     rm -rf /var/lib/apt/lists/* && \
     cargo build --tests --release --verbose --target-dir /target
 
-CMD cargo test --release --verbose --target-dir /target
+CMD ls /target/release && cargo test --release --verbose --target-dir /target
