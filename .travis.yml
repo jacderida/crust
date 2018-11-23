@@ -16,6 +16,7 @@ branches:
   only:
     - master
     - docker
+    - docker-experimental
 cache:
   cargo: true
 before_script:
