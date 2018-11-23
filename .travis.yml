@@ -17,11 +17,7 @@ branches:
     - master
     - docker
     - docker-experimental
-cache:
-  cargo: true
 before_script:
   - ./scripts/pre-build.sh
 script:
   - ./scripts/build.sh
-before_cache:
-  - cargo prune
