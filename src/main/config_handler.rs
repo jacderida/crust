@@ -143,4 +143,9 @@ mod tests {
             panic!(format!("CrustError parsing sample.config: {:?}", what));
         }
     }
+
+    #[test]
+    fn test_docker_mounted_volume() {
+        println!("this test is defined")
+    }
 }
